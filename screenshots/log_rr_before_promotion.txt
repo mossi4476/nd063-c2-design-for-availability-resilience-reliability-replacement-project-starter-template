@@ -38,4 +38,11 @@ MySQL [udacity]> SELECT * FROM user;
 +----+---------+---------------------+
 3 rows in set (0.001 sec)
 
+MySQL [udacity]> CREATE TABLE user (
+    -> id INT PRIMARY KEY,
+    -> name VARCHAR(50),
+    -> email VARCHAR(50)
+    ->  );
+ERROR 1290 (HY000): The MySQL server is running with the --read-only option so it cannot execute this statement
+
 MySQL [udacity]>
