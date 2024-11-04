@@ -1,0 +1,94 @@
+A newer release of "Amazon Linux" is available.
+  Version 2023.6.20241028:
+  Version 2023.6.20241031:
+Run "/usr/bin/dnf check-release-update" for full release and version update info
+   ,     #_
+   ~\_  ####_        Amazon Linux 2023
+  ~~  \_#####\
+  ~~     \###|
+  ~~       \#/ ___   https://aws.amazon.com/linux/amazon-linux-2023
+   ~~       V~' '->
+    ~~~         /
+      ~~._.   _/
+         _/ _/
+       _/m/'
+Last login: Mon Nov  4 06:51:46 2024 from 18.206.107.28
+[ec2-user@ip-10-1-10-227 ~]$ mysql -h admin.ch0ov9sdakhd.us-east-1.rds.amazonaws.com -u admin -p
+Enter password: 
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MySQL connection id is 205
+Server version: 8.0.39 Source distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MySQL [(none)]> CREATE TABLE user (
+    ->     -> id INT PRIMARY KEY,
+    ->     ->  name VARCHAR(50),
+    ->     ->  email VARCHAR(50)
+    ->     -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-> id INT PRIMARY KEY,
+    ->  name VARCHAR(50),
+    ->  email VARCHAR(50)
+    -' at line 2
+MySQL [(none)]> use udacity
+ERROR 1049 (42000): Unknown database 'udacity'
+MySQL [(none)]> use admin
+ERROR 1049 (42000): Unknown database 'admin'
+MySQL [(none)]> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| dung               |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+5 rows in set (0.009 sec)
+
+MySQL [(none)]> use dung
+Database changed
+MySQL [dung]> CREATE DATABASE udacity;
+Query OK, 1 row affected (0.020 sec)
+
+MySQL [dung]> USE udacity;
+Database changed
+MySQL [udacity]> INSERT INTO user (id, name, email)
+    ->     -> VALUES (1, 'Peter', 'peter@example.com'),
+    ->     -> (2, 'Jane', 'jane@example.com');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-> VALUES (1, 'Peter', 'peter@example.com'),
+    -> (2, 'Jane', 'jane@example.co' at line 2
+MySQL [udacity]> INSERT INTO user (id, name, email) VALUES 
+    -> (1, 'Alice', 'alice@example.com'),
+    -> (2, 'Bob', 'bob@example.com'),
+    -> (3, 'Charlie', 'charlie@example.com');
+ERROR 1146 (42S02): Table 'udacity.user' doesn't exist
+MySQL [udacity]> 
+MySQL [udacity]> ^C
+INSERT INTO user (id, name, email) VALUES 
+(1, 'Alice', 'alice@example.com'),
+(2, 'Bob', 'bob@example.com'),
+(3, 'Charlie', 'charlie@example.com');
+INSERT INTO user (id, name, email) VALUES 
+    -> (1, 'Alice', 'alice@example.com'),
+    -> (2, 'Bob', 'bob@example.com'),
+    -> (3, 'Charlie', 'charlie@example.com');
+ERROR 1146 (42S02): Table 'udacity.user' doesn't exist
+MySQL [udacity]> 
+MySQL [udacity]> CREATE TABLE user (
+    ->     id INT PRIMARY KEY,
+    ->     name VARCHAR(50),
+    ->     email VARCHAR(50)
+    -> );
+Query OK, 0 rows affected (0.085 sec)
+
+MySQL [udacity]> INSERT INTO user (id, name, email) VALUES 
+    -> (1, 'Alice', 'alice@example.com'),
+    -> (2, 'Bob', 'bob@example.com'),
+    -> (3, 'Charlie', 'charlie@example.com');
+Query OK, 3 rows affected (0.008 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+MySQL [udacity]> 

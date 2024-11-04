@@ -1,0 +1,45 @@
+
+A newer release of "Amazon Linux" is available.
+  Version 2023.6.20241028:
+  Version 2023.6.20241031:
+Run "/usr/bin/dnf check-release-update" for full release and version update info
+   ,     #_
+   ~\_  ####_        Amazon Linux 2023
+  ~~  \_#####\
+  ~~     \###|
+  ~~       \#/ ___   https://aws.amazon.com/linux/amazon-linux-2023
+   ~~       V~' '->
+    ~~~         /
+      ~~._.   _/
+         _/ _/
+       _/m/'
+Last login: Mon Nov  4 07:49:43 2024 from 3.16.146.5
+[ec2-user@ip-10-2-10-73 ~]$ mysql -h admin.c7dauoik2rmo.us-east-2.rds.amazonaws.com -u admin -p 
+Enter password: 
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MySQL connection id is 9
+Server version: 8.0.39 Source distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MySQL [(none)]> use udacity
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+MySQL [udacity]> INSERT INTO user (id, name, email) VALUES 
+    ->     (1, 'Alice', 'alice@example.com'),
+    ->     (2, 'Bob', 'bob@example.com'),
+    ->     (3, 'Charlie', 'charlie@example.com');
+ERROR 1062 (23000): Duplicate entry '1' for key 'user.PRIMARY'
+MySQL [udacity]> 
+MySQL [udacity]> INSERT INTO user (id, name, email) VALUES 
+    ->     (4, 'Ali4ce', 'alice@exa4mple.com'), 
+    ->     (5, 'Bo4b', 'bob@exam4ple.com'), 
+    ->     (6, 'Char4lie', 'charlie@4example.com'); 
+Query OK, 3 rows affected (0.008 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+MySQL [udacity]>
